@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  portfolio:
+    build: .
+    ports:
+      - '3000:3000'
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      # Add any environment variables your app needs here
+      # - SMTP_HOST=your-smtp-host
+      # - SMTP_PORT=587
+      # - SMTP_USER=your-user
+      # - SMTP_PASS=your-password
