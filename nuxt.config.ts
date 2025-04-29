@@ -7,15 +7,13 @@ export default defineNuxtConfig({
     '@nuxtjs/strapi',
   ],
 
-  // strapi: {
-  //   url: process.env.STRAPI_URL || 'http://localhost:1337',
-  //   token: process.env.STRAPI_TOKEN || undefined
-  //   prefix: '/api',
-  //   admin: '/admin',
-  //   version: 'v5',
-  //   cookie: {},
-  //   cookieName: 'strapi_jwt'
-  // },
+  strapi: {
+    url: process.env.NUXT_STRAPI_URL || 'http://localhost:1337',
+    prefix: '/api',
+    admin: '/admin',
+    version: 'v5',
+    cookieName: 'strapi_jwt',
+  },
 
 
   tailwindcss: {

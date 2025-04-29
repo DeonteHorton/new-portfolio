@@ -36,7 +36,15 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
+const { find } = useStrapi()
+
+
+const strapiBlogs = await find('blogs')
+
+console.log(strapiBlogs.data)
+
 const blogs = [
   {
     id: 1,
