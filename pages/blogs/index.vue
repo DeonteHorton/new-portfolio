@@ -10,9 +10,21 @@
         </div>
         <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <article v-for="blog in blogs" :key="blog.id" class="flex max-w-xl flex-col items-start justify-between">
+                <div class="relative w-full mb-5">
+                  <img :src="blog?.seo?.shareImage?.url" :alt="blog?.seo?.shareImage?.alternativeText" class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2" />
+                  <div class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset" />
+                </div>
             <div class="flex items-center gap-x-4 text-xs">
                 <time :datetime="blog.publishedAt" class="text-gray-500">{{ formatDate(blog.publishedAt) }}</time>
-                <!-- <a :href="blog.category.href" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ blog.category.title }}</a> -->
+                <div v-if="blog.blogCategories?.length" class="flex gap-2">
+                  <div
+                    v-for="category in blog.blogCategories"
+                    :key="category.id"
+                    class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                  >
+                    {{ category.text }}
+                  </div>
+                </div>
             </div>
             <div class="group relative">
                 <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
@@ -45,16 +57,26 @@ const blogs = ref({})
 
 
 try {
-  blogs.value = await find('blogs').then(response => response.data)
+  blogs.value = await find('blogs',
+    {
+      sort: ['publishedAt:desc'],
+      populate: {
+        seo: {
+          populate: "*"
+        },
+        blogCategories: {
+          populate: "*"
+        },
+      }
+    }
+  ).then(response => response.data)
 
-  console.log(blogs.value)
 } catch (error) {
-  console.error('Error fetching blogs from Strapi:', error)
+  console.error('Error fetching blogs:', error)
 }
 
 const formatDate = (date: any) => {
   return df.format(date.toDateTimeString)
-
 }
 
 
