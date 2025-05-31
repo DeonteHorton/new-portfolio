@@ -1,7 +1,6 @@
 <template>
   <div class="bg-white px-6 py-32 lg:px-8">
     <div class="mx-auto max-w-3xl text-base/7 text-gray-700">
-      <p class="text-base/7 font-semibold text-indigo-600">Introducing</p>
       <h1 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">{{ blog.title }}</h1>
       <p class="mt-6 text-xl/8">{{ blog.description }}</p>
       <div v-for="content in blog.content" class="my-10" id="content">
