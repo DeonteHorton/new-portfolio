@@ -20,7 +20,7 @@
             Full Stack Developer with 4+ years of experience building modern web applications.
             Specialized in Laravel PHP, Vue.js, and other modern technologies.
             Currently developing innovative CAD and BIM software solutions at Vectorworks.
-            Based in Jackson, Mississippi.
+            Based in the Greater Jackson area of Mississippi.
           </p>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">
