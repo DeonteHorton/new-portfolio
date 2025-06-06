@@ -20,10 +20,6 @@
             </a>
           </div>
         </div>
-        <div class="flex gap-4">
-          <Button variant="ghost" size="sm" as="nuxt-link" to="/privacy">Privacy Policy</Button>
-          <Button variant="ghost" size="sm" as="nuxt-link" to="/terms">Terms of Service</Button>
-        </div>
       </div>
     </div>
   </footer>
@@ -40,6 +36,11 @@ const socialLinks = [
     name: 'LinkedIn',
     url: 'https://linkedin.com/in/deonte-horton',
     icon: 'lucide:linkedin'
+  },
+  {
+    name: 'Twitter',
+    url: 'https://x.com/deonte_horton_?s=21&t=wREG7ofuOGWLM6Ld5OS_UQ',
+    icon: 'lucide:twitter'
   }
 ]
 </script>

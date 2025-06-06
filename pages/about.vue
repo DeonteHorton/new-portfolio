@@ -20,18 +20,22 @@
       <Card class="flex-1 overflow-hidden inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5">
         <CardHeader>
           <CardTitle class="text-xl">Background</CardTitle>
-          <CardDescription>My journey in software development</CardDescription>
+          <CardDescription>My journey in web development</CardDescription>
         </CardHeader>
         <CardContent class="space-y-4">
           <p>
-            I am a Web Developer currently working at Vectorworks, where I contribute to developing new features and enhancements for oue web site.
-            My journey in tech began at Mississippi Coding Academy, where I built a strong foundation in web development principles
+            I am a Web Developer currently working at Vectorworks, where I contribute to developing new features and enhancements for our web site.
+            My journey in tech began at Mississippi Coding Academy located in Jackson, Mississippi, where I built a strong foundation in web development principles
             and modern web technologies. Based in Greater Jackson area of Mississippi, I've been coding for 4+ years with a focus on full-stack web development.
           </p>
           <p>
-            With my experience over the years, I've developed expertise in full-stack development,
-            focusing on creating efficient, scalable applications using technologies like Laravel PHP and Vue.js. I'm passionate about writing clean code and
-            implementing best practices in web development. Outside of coding, I enjoy soccer, video games, and spending time with family and friends.
+            With my experience over the years, I've developed an extensive amount of knowledge in full-stack web development,
+            focusing on creating efficient, scalable applications using technologies like Laravel/PHP and Nuxt/Vue.js. I'm love writing clean code and
+            invoking best practices in web development, with the goal of delivering high-quality, maintainable and modular code while shipping to production in a timely manner.
+          </p>
+          <h1 class="text-xl font-medium">More About me</h1>
+          <p>
+            Outside of coding, I enjoy soccer, video games, and spending time with family and friends. I'm currently learning new technologies and frameworks to stay up-to-date with the latest trends in web development. I'm currently deepening my skills in web development and software engineering principles and one of the technologies I'm learning is Golang.
           </p>
         </CardContent>
       </Card>
@@ -51,6 +55,14 @@
                 {{ experience.company }} • {{ experience.period }}
               </p>
               <p class="text-muted-foreground">{{ experience.description }}</p>
+              <div v-for="tech in experience.technologies" class="w-full grid grid-cols-6">
+                <span
+                    :key="tech"
+                    class="px-2 py-1 text-sm rounded-full bg-gray-300/20"
+                >
+                    {{ tech }}
+                </span>
+              </div>
             </div>
           </div>
         </CardContent>
@@ -108,28 +120,32 @@
 <script setup lang="ts">
 const experiences = [
   {
-    role: 'Software Developer',
+    role: 'Web Developer',
     company: 'Vectorworks',
-    period: '2024 - Present',
-    description: 'Developing and maintaining CAD and BIM software solutions at a global design software leader serving 650,000+ professionals in the architecture, landscape, and entertainment industries. Working with a collaborative team to build innovative tools that help designers realize their visions.'
+    period: '2023 - Present',
+    description: '',
+    technicalSkills: ['Laravel', 'PHP', 'VueJS', 'NuxtJS', 'JavaScript', 'Ant-Design vue', 'HTML5', 'Buddy.works ( CI/CD )', 'Bitbucket', 'Github']
   },
   {
-    role: 'Software Developer',
+    role: 'Full Stack Web Developer',
     company: 'Netlink Voice',
-    period: '2023',
-    description: 'Developed and maintained web applications using Laravel PHP and Vue.js, implemented new features, and worked on improving user experience. Participated in agile development cycles and collaborated with cross-functional teams.'
+    period: 'July 2022 - June 2023',
+    description: 'Took ownership of multiple Laravel projects, working closely with cross-functional teams to understand what the business actually needed and consistently delivered solutions that went beyond expectations, while continuously learning emerging web development technologies to stay sharp and improve my technical skills.',
+    technicalSkills: ['Laravel', 'PHP', 'VueJS', 'JavaScript', 'Tailwind CSS', 'PrimeVue', 'HTML5', 'Redis', 'Vultr', 'DigitalOcean', 'Gitlab']
   },
   {
-    role: 'Full Stack Developer',
-    company: 'Freelance',
-    period: '2022 - 2023',
-    description: 'Worked on multiple client projects using Laravel, Vue.js, and other modern web technologies. Built responsive websites and web applications with a focus on performance and user experience.'
+    role: 'Junior Full Stack Web Developer',
+    company: 'Netlink Voice',
+    period: 'August 2020 - July 2022',
+    description: 'Enhanced application performance and user experience through strategic API integrations that reduced documentation workflow time by 65%, conducted comprehensive project assessments to identify optimization opportunities, and expanded UI functionality within the OpenSips Open Source framework to support enhanced networking capabilities.',
+    technologies: ['Laravel', 'PHP', 'VueJS', 'JavaScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'Vultr', 'Gitlab']
   },
   {
-    role: 'Student Developer',
+    role: 'Student Web Developer',
     company: 'Mississippi Coding Academy',
-    period: '2022',
-    description: 'Completed intensive full-stack development training, working on various projects using modern web technologies. Gained hands-on experience with JavaScript, React, PHP, and database design.'
+    period: 'June 2019 - May 2020',
+    description: 'Completed intensive full-stack development training, working on various projects using modern web technologies. Gained hands-on experience with HTML, CSS, Bootstrap, 960-Grid,  JavaScript, ReactJS, and MySQL.',
+    technologies: ['HTML', 'CSS', 'Bootstrap', '960-Grid', 'JavaScript', 'ReactJS', 'MySQL', 'Github', 'Codepen']
   }
 ]
 

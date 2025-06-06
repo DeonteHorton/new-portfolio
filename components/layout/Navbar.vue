@@ -5,7 +5,7 @@
         to="/"
         class="font-bold text-2xl bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
       >
-        Deonte
+          <Logo />
       </NuxtLink>
       <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
         <NuxtLink
@@ -29,33 +29,56 @@
     </div>
 
     <!-- Mobile menu -->
-    <div
-      v-if="isMenuOpen"
-      class="md:hidden absolute top-16 left-0 right-0 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
-    >
-      <nav class="container py-4">
-        <NuxtLink
-          v-for="link in navigationLinks"
-          :key="link.name"
-          :to="link.path"
-          class="block py-2 px-4 hover:bg-muted/50 rounded-lg"
-          @click="isMenuOpen = false"
+    <Transition name="up-to-down" mode="out-in">
+        <div
+        v-if="isMenuOpen"
+        class="md:hidden absolute top-16 left-0 right-0 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
         >
-          {{ link.name }}
-        </NuxtLink>
-      </nav>
-    </div>
+        <nav class="container py-4">
+            <NuxtLink
+            v-for="link in navigationLinks"
+            :key="link.name"
+            :to="link.path"
+            class="block py-2 px-4 hover:bg-muted/50 rounded-lg"
+            @click="isMenuOpen = false"
+            >
+            {{ link.name }}
+            </NuxtLink>
+        </nav>
+        </div>
+    </Transition>
   </header>
 </template>
 
+<style scoped>
+  .up-to-down-leave-active {
+    transition: all 0.5s ease-out;
+  }
+  .up-to-down-leave-to {
+    filter: opacity(0);
+    /* filter: blur(1rem); */
+    transform: translatey(-100%);
+  }
+
+  .up-to-down-enter-active {
+    transition: all 0.5s ease-in;
+  }
+  .up-to-down-enter-from {
+    filter: opacity(0);
+    transform: translatey(-100%);
+  }
+</style>
+
 <script setup lang="ts">
+import { LogOutIcon } from 'lucide-vue-next';
+
 const isMenuOpen = ref(false)
 
 const navigationLinks = [
   { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
   { name: 'Projects', path: '/projects' },
   { name: 'Blog', path: '/blogs' },
-  { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' }
 ]
 </script>

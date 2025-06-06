@@ -7,12 +7,20 @@ export default defineNuxtConfig({
     '@nuxtjs/strapi',
   ],
 
+  runtimeConfig: {
+     strapi: {
+       token: process.env.NUXT_STRAPI_TOKEN
+     }
+  },
+
   strapi: {
-    url: process.env.NUXT_STRAPI_URL || 'http://localhost:1337',
+    url: process.env.NUXT_STRAPI_URL,
+    token: process.env.NUXT_STRAPI_TOKEN,
     prefix: '/api',
     admin: '/admin',
     version: 'v5',
-    cookieName: 'strapi_jwt',
+    devtools: true,
+    cookieName: 'strapi_jwt'
   },
 
 
@@ -38,6 +46,13 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+
+  app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in' // default
+    }
+  },
 
   compatibilityDate: '2025-04-24',
 })

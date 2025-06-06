@@ -37,7 +37,7 @@
           </CardHeader>
           <CardContent>
             <p class="text-muted-foreground">{{ item.content }}</p>
-            <a 
+            <a
               v-if="item.link"
               :href="item.link"
               target="_blank"
@@ -56,8 +56,8 @@
           </CardHeader>
           <CardContent>
             <div class="flex gap-4">
-              <a 
-                v-for="social in socialLinks" 
+              <a
+                v-for="social in socialLinks"
                 :key="social.name"
                 :href="social.url"
                 target="_blank"
@@ -79,22 +79,15 @@ const contactInfo = [
   {
     icon: 'lucide:mail',
     title: 'Email',
-    content: 'deonte.horton11@gmail.com',
-    link: 'mailto:deonte.horton11@gmail.com',
+    content: 'dhorton@deonte.dev',
+    link: 'mailto:dhorton@deonte.dev',
     linkText: 'Send an email'
   },
   {
     icon: 'lucide:map-pin',
     title: 'Location',
-    content: 'Jackson, Mississippi',
+    content: 'Greater Jackson Area, Mississippi',
   },
-  {
-    icon: 'lucide:briefcase',
-    title: 'Work',
-    content: 'Software Developer at Vectorworks',
-    link: 'https://www.vectorworks.net/',
-    linkText: 'Visit Vectorworks'
-  }
 ]
 
 const socialLinks = [
@@ -109,14 +102,10 @@ const socialLinks = [
     icon: 'lucide:linkedin'
   },
   {
-    name: 'Portfolio',
-    url: 'http://localhost:3000',
-    icon: 'lucide:globe'
+    name: 'Twitter',
+    url: 'https://x.com/deonte_horton_?s=21&t=wREG7ofuOGWLM6Ld5OS_UQ',
+    icon: 'lucide:twitter'
   }
 ]
 
-const handleSubmit = (formData: any) => {
-  // Implement your form submission logic here
-  console.log('Form submitted:', formData)
-}
 </script>
