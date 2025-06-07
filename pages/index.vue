@@ -19,7 +19,7 @@
                 </p>
               </div>
               <div class="flex flex-col sm:flex-row gap-4">
-                <!-- <NuxtLink to="/projects">
+                <NuxtLink to="/projects">
                   <Button class="group relative overflow-hidden rounded-full px-6 h-12 transition-transform hover:scale-105">
                     <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600"></span>
                     <span class="relative flex items-center justify-center gap-2">
@@ -27,18 +27,10 @@
                       <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </Button>
-                </NuxtLink> -->
-                <!-- <NuxtLink to="/contact">
+                </NuxtLink>
+                <NuxtLink to="/contact">
                   <Button variant="outline" class="rounded-full px-6 h-12 transition-transform hover:scale-105">
                     Contact Me
-                  </Button>
-                </NuxtLink> -->
-                <NuxtLink to="/contact">
-                  <Button class="group relative overflow-hidden rounded-full px-6 h-12 transition-transform hover:scale-105">
-                    <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600"></span>
-                    <span class="relative flex items-center justify-center gap-2">
-                      Contact Me
-                    </span>
                   </Button>
                 </NuxtLink>
               </div>
