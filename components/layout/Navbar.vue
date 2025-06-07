@@ -70,15 +70,14 @@
 </style>
 
 <script setup lang="ts">
-import { LogOutIcon } from 'lucide-vue-next';
 
 const isMenuOpen = ref(false)
 
 const navigationLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Blog', path: '/blogs' },
+  // { name: 'Projects', path: '/projects' },
+  // { name: 'Blog', path: '/blogs' },
   { name: 'Contact', path: '/contact' }
 ]
 </script>

@@ -15,7 +15,7 @@
 
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
       <!-- Contact Form -->
-      <Card class="relative overflow-hidden">
+      <!-- <Card class="relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 pointer-events-none"></div>
         <CardHeader>
           <CardTitle>Send a Message</CardTitle>
@@ -24,7 +24,7 @@
         <CardContent>
           <ContactForm @submit="handleSubmit" />
         </CardContent>
-      </Card>
+      </Card> -->
 
       <!-- Contact Information -->
       <div class="space-y-8">

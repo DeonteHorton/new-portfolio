@@ -55,14 +55,15 @@
                 {{ experience.company }} • {{ experience.period }}
               </p>
               <p class="text-muted-foreground">{{ experience.description }}</p>
-              <div v-for="tech in experience.technologies" class="w-full grid grid-cols-6">
-                <span
-                    :key="tech"
-                    class="px-2 py-1 text-sm rounded-full bg-gray-300/20"
-                >
-                    {{ tech }}
-                </span>
-              </div>
+              <div class="flex flex-wrap gap-2 mt-3">
+                   <span
+                     v-for="tech in experience.technologies"
+                     :key="tech"
+                     class="px-2 py-1 text-sm rounded-full bg-gray-300/20"
+                   >
+                     {{ tech }}
+                   </span>
+                 </div>
             </div>
           </div>
         </CardContent>
@@ -109,9 +110,9 @@
 
     <!-- Call to Action -->
     <div class="text-center">
-      <p class="text-muted-foreground mb-4">Interested in working together?</p>
+      <p class="text-muted-foreground mb-4">Want to get in touch?</p>
       <NuxtLink to="/contact">
-        <Button class="rounded-full px-8">Get in Touch</Button>
+        <Button class="rounded-full px-8">Contact me</Button>
       </NuxtLink>
     </div>
   </div>
@@ -124,14 +125,14 @@ const experiences = [
     company: 'Vectorworks',
     period: '2023 - Present',
     description: '',
-    technicalSkills: ['Laravel', 'PHP', 'VueJS', 'NuxtJS', 'JavaScript', 'Ant-Design vue', 'HTML5', 'Buddy.works ( CI/CD )', 'Bitbucket', 'Github']
+    technologies: ['Laravel', 'PHP', 'VueJS', 'NuxtJS', 'JavaScript', 'Ant-Design vue', 'HTML5', 'CSS3', 'Buddy.works ( CI/CD )', 'Bitbucket', 'Github']
   },
   {
     role: 'Full Stack Web Developer',
     company: 'Netlink Voice',
     period: 'July 2022 - June 2023',
     description: 'Took ownership of multiple Laravel projects, working closely with cross-functional teams to understand what the business actually needed and consistently delivered solutions that went beyond expectations, while continuously learning emerging web development technologies to stay sharp and improve my technical skills.',
-    technicalSkills: ['Laravel', 'PHP', 'VueJS', 'JavaScript', 'Tailwind CSS', 'PrimeVue', 'HTML5', 'Redis', 'Vultr', 'DigitalOcean', 'Gitlab']
+    technologies: ['Laravel', 'PHP', 'VueJS', 'JavaScript', 'Tailwind CSS', 'PrimeVue', 'HTML5', 'Redis', 'Vultr', 'DigitalOcean', 'Gitlab']
   },
   {
     role: 'Junior Full Stack Web Developer',
