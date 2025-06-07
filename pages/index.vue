@@ -84,6 +84,15 @@
 </style>
 
 <script setup lang="ts">
+useSeoMeta({
+  title: "Deonte | Welcome to my portfolio",
+  ogTitle: "Deonte | Welcome to my portfolio",
+  description: "A website about me and my skills.",
+  ogDescription: "A website about me and my skills.",
+  ogImage: "/pfp.jpg",
+  twitterCard: "summary",
+})
+
 const role = "Full Stack Web Developer";
 
 const skills = [

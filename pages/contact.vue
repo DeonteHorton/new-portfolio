@@ -72,6 +72,16 @@
 </template>
 
 <script setup lang="ts">
+
+useSeoMeta({
+  title: "Deonte | Contact me",
+  ogTitle: "Deonte | Contact me",
+  description: "Reach out to me if you have any questions or like to connect.",
+  ogDescription: "Reach out to me if you have any questions or like to connect.",
+  ogImage: "/pfp.jpg",
+  twitterCard: "summary",
+})
+
 const contactInfo = [
   {
     icon: 'lucide:mail',

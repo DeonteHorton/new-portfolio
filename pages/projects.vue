@@ -13,33 +13,10 @@
       </p>
     </div>
 
-    <!-- Filter Tags -->
-    <div class="flex flex-wrap justify-center gap-2">
-      <Button
-        v-for="tag in tags"
-        :key="tag.id"
-        @click="toggleTag(tag)"
-        :variant="selectedTags.includes(tag) ? 'default' : 'outline'"
-        size="sm"
-        class="rounded-full"
-      >
-        {{ tag.name }}
-      </Button>
-      <Button
-        v-if="selectedTags.length > 0"
-        @click="selectedTags = []"
-        variant="ghost"
-        size="sm"
-        class="rounded-full"
-      >
-        Clear all
-      </Button>
-    </div>
-
     <!-- Projects Grid -->
-    <div class="max-w-full mx-auto text-5xl text-center">
-      Coming soon
-    </div>
+      <div class="max-w-full mx-auto text-5xl text-center">
+        Coming soon
+      </div>
 
     <!-- No results state -->
     <div v-if="filteredProjects.length === 0" class="text-center py-12">

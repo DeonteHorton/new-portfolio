@@ -124,6 +124,16 @@
 </template>
 
 <script setup lang="ts">
+
+useSeoMeta({
+  title: "Deonte | About me",
+  ogTitle: "Deonte | About me",
+  description: "Learn more about me, my experiences, and my journey.",
+  ogDescription: "Learn more about me, my experiences, and my journey.",
+  ogImage: "/pfp.jpg",
+  twitterCard: "summary",
+})
+
 const experiences = [
   {
     role: 'Web Developer',
