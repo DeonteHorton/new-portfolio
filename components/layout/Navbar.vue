@@ -32,7 +32,7 @@
     <Transition name="up-to-down" mode="out-in">
         <div
         v-if="isMenuOpen"
-        class="md:hidden absolute top-16 left-0 right-0 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        class="md:hidden absolute top-16 left-0 right-0 border-b bg-background/95"
         >
         <nav class="container py-4">
             <NuxtLink
