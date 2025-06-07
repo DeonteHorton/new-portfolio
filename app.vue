@@ -8,7 +8,7 @@
 
     <Navbar />
 
-    <main class="flex-1">
+    <main class="mt-12 flex-1">
         <NuxtPage />
     </main>
 
