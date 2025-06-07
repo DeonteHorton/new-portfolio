@@ -12,7 +12,7 @@
           v-for="link in navigationLinks"
           :key="link.name"
           :to="link.path"
-          class="relative transition-colors hover:text-foreground/80 group"
+          class="relative transition-colors hover:text-foreground/80 group hover-effect"
         >
           {{ link.name }}
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
@@ -56,7 +56,6 @@
   }
   .up-to-down-leave-to {
     filter: opacity(0);
-    /* filter: blur(1rem); */
     transform: translatey(-100%);
   }
 
@@ -66,6 +65,15 @@
   .up-to-down-enter-from {
     filter: opacity(0);
     transform: translatey(-100%);
+  }
+
+  .hover-effect {
+      /* cursor: pointer; */
+      transition: transform 0.2s ease-in-out;
+  }
+  .hover-effect:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
   }
 </style>
 

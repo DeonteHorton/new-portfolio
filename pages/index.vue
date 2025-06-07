@@ -28,14 +28,22 @@
                     </span>
                   </Button>
                 </NuxtLink> -->
-                <NuxtLink to="/contact">
+                <!-- <NuxtLink to="/contact">
                   <Button variant="outline" class="rounded-full px-6 h-12 transition-transform hover:scale-105">
                     Contact Me
+                  </Button>
+                </NuxtLink> -->
+                <NuxtLink to="/contact">
+                  <Button class="group relative overflow-hidden rounded-full px-6 h-12 transition-transform hover:scale-105">
+                    <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600"></span>
+                    <span class="relative flex items-center justify-center gap-2">
+                      Contact Me
+                    </span>
                   </Button>
                 </NuxtLink>
               </div>
             </div>
-            <div class="relative items-center">
+            <div class="relative items-center pfp">
               <!-- Decorative elements -->
               <div class="mx-auto wavy-background opacity-20 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               <img src="/pfp.jpg" alt="Deonte Horton" class="mx-auto object-cover max-w-lg w-full wavy-border ">
@@ -72,6 +80,14 @@
 </template>
 
 <style scoped>
+
+.pfp {
+    transition: transform 0.2s ease;
+}
+.pfp:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
+}
 
 </style>
 

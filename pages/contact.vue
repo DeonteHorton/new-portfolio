@@ -5,12 +5,9 @@
       <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
         Let's
         <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-          Connect
+          Connect!
         </span>
       </h1>
-      <p class="text-xl text-muted-foreground">
-        Have a project in mind? I'd love to hear about it.
-      </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">

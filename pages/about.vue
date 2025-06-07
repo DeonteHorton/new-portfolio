@@ -59,7 +59,7 @@
                    <span
                      v-for="tech in experience.technologies"
                      :key="tech"
-                     class="px-2 py-1 text-sm rounded-full bg-gray-300/20"
+                     class="px-2 py-1 text-sm rounded-full bg-gray-300/20 pill"
                    >
                      {{ tech }}
                    </span>
@@ -97,7 +97,7 @@
                 <span
                   v-for="skill in category.skills"
                   :key="skill"
-                  class="px-2 py-1 text-sm rounded-full bg-gray-300/20"
+                  class="px-2 py-1 text-sm rounded-full bg-gray-300/20 pill"
                 >
                   {{ skill }}
                 </span>
@@ -112,7 +112,12 @@
     <div class="text-center">
       <p class="text-muted-foreground mb-4">Want to get in touch?</p>
       <NuxtLink to="/contact">
-        <Button class="rounded-full px-8">Contact me</Button>
+        <Button class="group relative overflow-hidden rounded-full px-6 h-12 transition-transform hover:scale-105">
+          <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600"></span>
+          <span class="relative flex items-center justify-center gap-2">
+            Contact Me
+          </span>
+        </Button>
       </NuxtLink>
     </div>
   </div>
@@ -123,7 +128,7 @@ const experiences = [
   {
     role: 'Web Developer',
     company: 'Vectorworks',
-    period: '2023 - Present',
+    period: 'July 2023 - Present',
     description: '',
     technologies: ['Laravel', 'PHP', 'VueJS', 'NuxtJS', 'JavaScript', 'Ant-Design vue', 'HTML5', 'CSS3', 'Buddy.works ( CI/CD )', 'Bitbucket', 'Github']
   },
