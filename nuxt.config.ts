@@ -11,23 +11,14 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
     'nuxt-icon',
-    '@nuxtjs/strapi',
   ],
 
   runtimeConfig: {
-     strapi: {
-       token: process.env.NUXT_STRAPI_TOKEN
-     }
-  },
-
-  strapi: {
-    url: process.env.NUXT_STRAPI_URL,
-    token: process.env.NUXT_STRAPI_TOKEN,
-    prefix: '/api',
-    admin: '/admin',
-    version: 'v5',
-    devtools: true,
-    cookieName: 'strapi_jwt'
+    strapiUrl: process.env.NUXT_STRAPI_URL,
+    strapiToken: process.env.NUXT_STRAPI_TOKEN,
+    public: {
+      strapiUrl: process.env.NUXT_STRAPI_URL
+    }
   },
 
   tailwindcss: {
