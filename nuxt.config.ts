@@ -9,6 +9,7 @@ export default defineNuxtConfig({
         '/contact',
         '/projects',
         '/blogs',
+        '/blogs/*',
         // Prerender API routes too
         '/api/strapi/projects',
         '/api/strapi/blogs',
