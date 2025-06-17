@@ -1,34 +1,5 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-hooks: {
-    async 'nitro:config'(nitroConfig) {
-      if (process.env.NODE_ENV === 'production') {
-        try {
-          const { $fetch } = await import('ofetch')
-          
-          // Call Strapi directly instead of the API route
-          const response = await $fetch(`${process.env.NUXT_STRAPI_URL}/api/blogs?populate=*`, {
-            headers: {
-              Authorization: `Bearer ${process.env.NUXT_STRAPI_TOKEN}`
-            }
-          })
-          
-          const blogs = response.data || []
-          const blogRoutes = blogs.map(blog => `/blogs${blog.slug}`)
-          
-          nitroConfig.prerender = nitroConfig.prerender || {}
-          nitroConfig.prerender.routes = [
-            ...(nitroConfig.prerender.routes || []),
-            ...blogRoutes
-          ]
-          
-          console.log(`Added ${blogRoutes.length} blog routes for prerendering:`, blogRoutes)
-        } catch (error) {
-          console.warn('Failed to fetch blog routes for prerendering:', error)
-        }
-      }
-    }
-  },
   
    nitro: {
     prerender: {
@@ -38,6 +9,7 @@ hooks: {
         '/contact',
         '/projects',
         '/blogs',
+        '/blogs/test-blog',
       ]
     }
   },
