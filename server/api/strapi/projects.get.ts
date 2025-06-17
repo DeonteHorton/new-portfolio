@@ -1,9 +1,9 @@
 export default defineEventHandler(async (event) => {
   const strapi = useStrapiServer()
-  
+
   try {
     const response = await strapi.find('projects', {
-      sort: ['publishedAt:asc'],
+      sort: ['createdAt:desc'],
       populate: {
         projectImage: {
           populate: "*"
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
         }
       }
     })
-    
+
     return response.data
   } catch (error) {
     throw createError({
