@@ -53,7 +53,7 @@
           </div>
 
           <!-- Project Links -->
-          <div v-if="project.demoLink || project.githubLink" class="flex gap-3 pt-2">
+          <div v-if="project.demoLink || project.githubLink" class="flex flex-wrap gap-3 pt-2">
             <Button
               v-if="project.demoLink"
               as-child
