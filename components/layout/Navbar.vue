@@ -7,25 +7,31 @@
       >
           <Logo />
       </NuxtLink>
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-        <NuxtLink
-          v-for="link in navigationLinks"
-          :key="link.name"
-          :to="link.path"
-          class="relative transition-colors hover:text-foreground/80 group hover-effect"
-        >
-          {{ link.name }}
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
-        </NuxtLink>
-      </nav>
-      <!-- Mobile menu button -->
-      <Button variant="ghost" size="icon" class="md:hidden" @click="isMenuOpen = !isMenuOpen">
-        <div class="space-y-1.5">
-          <div class="w-6 h-0.5 bg-foreground"></div>
-          <div class="w-6 h-0.5 bg-foreground"></div>
-          <div class="w-6 h-0.5 bg-foreground"></div>
-        </div>
-      </Button>
+      <div class="flex items-center gap-2">
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <NuxtLink
+            v-for="link in navigationLinks"
+            :key="link.name"
+            :to="link.path"
+            class="relative transition-colors hover:text-foreground/80 group hover-effect"
+          >
+            {{ link.name }}
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+          </NuxtLink>
+        </nav>
+        
+        <!-- Theme Toggle -->
+        <ThemeToggle />
+        
+        <!-- Mobile menu button -->
+        <Button variant="ghost" size="icon" class="md:hidden" @click="isMenuOpen = !isMenuOpen">
+          <div class="space-y-1.5">
+            <div class="w-6 h-0.5 bg-foreground"></div>
+            <div class="w-6 h-0.5 bg-foreground"></div>
+            <div class="w-6 h-0.5 bg-foreground"></div>
+          </div>
+        </Button>
+      </div>
     </div>
 
     <!-- Mobile menu -->
@@ -34,7 +40,7 @@
         v-if="isMenuOpen"
         class="md:hidden absolute top-16 left-0 right-0 border-b bg-background/95"
         >
-        <nav class="container py-4">
+        <nav class="container py-4 space-y-2">
             <NuxtLink
             v-for="link in navigationLinks"
             :key="link.name"
@@ -44,6 +50,12 @@
             >
             {{ link.name }}
             </NuxtLink>
+            
+            <!-- Theme toggle for mobile -->
+            <div class="flex items-center justify-between py-2 px-4">
+              <span class="text-sm font-medium">Theme</span>
+              <ThemeToggle />
+            </div>
         </nav>
         </div>
     </Transition>

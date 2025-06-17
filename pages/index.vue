@@ -11,7 +11,7 @@
                     Deonte Horton
                   </span>
                   <span class="block text-4xl mt-2">{{ role }}</span>
-                  <span class="block font-normal text-gray-600 text-2xl mt-2">Greater Jackson Area of Mississippi</span>
+                  <span class="block font-normal text-muted-foreground text-2xl mt-2">Greater Jackson Area of Mississippi</span>
                 </h1>
                 <p class="text-muted-foreground text-lg md:text-xl leading-relaxed">
                   Full Stack Web Developer with 4+ years of experience building modern web applications.

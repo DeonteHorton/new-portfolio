@@ -57,7 +57,7 @@
             <Button
               v-if="project.demoLink"
               as-child
-              class="flex items-center gap-2"
+              class="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-none"
             >
               <a
                 :href="project.demoLink"
@@ -72,7 +72,7 @@
               v-if="project.githubLink"
               as-child
               variant="outline"
-              class="flex items-center gap-2"
+              class="flex items-center gap-2 border-blue-500/20 text-blue-500 hover:bg-blue-500/10 hover:border-blue-500/40 dark:border-blue-400/30 dark:text-blue-400 dark:hover:bg-blue-400/10 dark:hover:border-blue-400/50"
             >
               <a
                 :href="project.githubLink"

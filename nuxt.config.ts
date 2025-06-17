@@ -48,6 +48,21 @@ export default defineNuxtConfig({
     pageTransition: {
       name: 'page',
       mode: 'out-in' // default
+    },
+    head: {
+      script: [
+        {
+          innerHTML: `
+            (function() {
+              const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+              const savedTheme = localStorage.getItem('theme') || 'system';
+              const resolvedTheme = savedTheme === 'system' ? getSystemTheme() : savedTheme;
+              document.documentElement.classList.add(resolvedTheme);
+            })()
+          `,
+          type: 'text/javascript'
+        }
+      ]
     }
   },
 
