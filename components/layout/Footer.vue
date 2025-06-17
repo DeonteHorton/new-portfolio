@@ -41,6 +41,11 @@ const socialLinks = [
     name: 'Twitter',
     url: 'https://x.com/deonte_horton_?s=21&t=wREG7ofuOGWLM6Ld5OS_UQ',
     icon: 'lucide:twitter'
+  },
+    {
+    name: 'Codepen',
+    url: 'https://codepen.io/DeonteHorton',
+    icon: 'lucide:codepen'
   }
 ]
 </script>
