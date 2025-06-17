@@ -9,16 +9,37 @@ export default defineNuxtConfig({
         '/contact',
         '/projects',
         '/blogs',
-        '/blogs/*',
-        // Prerender API routes too
-        '/api/strapi/projects',
-        '/api/strapi/blogs',
-        '/api/strapi/project-technologies'
       ]
     }
   },
   
   ssr: true,
+
+  hooks: {
+    async 'nitro:config'(nitroConfig) {
+      if (process.env.NODE_ENV === 'production') {
+        try {
+          // Import ofetch for use in config
+          const { $fetch } = await import('ofetch')
+          
+          // Fetch all blog slugs using your API route
+          const blogs = await $fetch('/api/strapi/blogs')
+          
+          const blogRoutes = blogs.map(blog => `/blogs${blog.slug}`)
+          
+          nitroConfig.prerender = nitroConfig.prerender || {}
+          nitroConfig.prerender.routes = [
+            ...(nitroConfig.prerender.routes || []),
+            ...blogRoutes
+          ]
+          
+          console.log(`Added ${blogRoutes.length} blog routes for prerendering:`, blogRoutes)
+        } catch (error) {
+          console.warn('Failed to fetch blog routes for prerendering:', error)
+        }
+      }
+    }
+  },
 
   modules: [
     '@nuxtjs/tailwindcss',
