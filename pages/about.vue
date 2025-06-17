@@ -59,7 +59,7 @@
                    <span
                      v-for="tech in experience.technologies"
                      :key="tech"
-                     class="px-2 py-1 text-sm rounded-full bg-gray-300/20 pill"
+                     class="px-2 py-1 text-sm rounded-full bg-muted pill"
                    >
                      {{ tech }}
                    </span>
@@ -97,7 +97,7 @@
                 <span
                   v-for="skill in category.skills"
                   :key="skill"
-                  class="px-2 py-1 text-sm rounded-full bg-gray-300/20 pill"
+                  class="px-2 py-1 text-sm rounded-full bg-muted pill"
                 >
                   {{ skill }}
                 </span>

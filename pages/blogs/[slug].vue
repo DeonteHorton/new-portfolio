@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-white px-6 py-32 lg:px-8">
-    <div class="mx-auto max-w-3xl text-base/7 text-gray-700">
-      <h1 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">{{ blog.title }}</h1>
-      <p class="mt-6 text-xl/8">{{ blog.description }}</p>
+  <div class="bg-background px-6 py-32 lg:px-8">
+    <div class="mx-auto max-w-3xl text-base/7 text-foreground">
+      <h1 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-foreground sm:text-5xl">{{ blog.title }}</h1>
+      <p class="mt-6 text-xl/8 text-muted-foreground">{{ blog.description }}</p>
       <div v-for="content in blog.content" class="my-10" id="content">
           <div v-if="content['__component'] == 'shared.rich-text'">
               <h2 id="rich-text-heading" v-if="content.heading">{{ content.heading }}</h2>
@@ -10,8 +10,8 @@
           </div>
           <div v-if="content['__component'] == 'shared.media'">
               <figure class="mt-16">
-                <img class="aspect-video rounded-xl bg-gray-50 object-cover" :src="content.media?.url" :alt="content.altText" />
-                <figcaption v-if="content.copy" class="mt-4 flex gap-x-2 text-sm/6 text-gray-500">
+                <img class="aspect-video rounded-xl bg-muted object-cover" :src="content.media?.url" :alt="content.altText" />
+                <figcaption v-if="content.copy" class="mt-4 flex gap-x-2 text-sm/6 text-muted-foreground">
                  {{ content.copy }}
                 </figcaption>
               </figure>
@@ -41,20 +41,36 @@ useSeoMeta({
 <style>
     #content {
         #rich-text-heading {
-            @apply text-3xl font-semibold
+            @apply text-3xl font-semibold text-foreground
         }
         #rich-text-body {
-            @apply text-base
+            @apply text-base text-foreground
         }
 
         blockquote {
-            @apply my-10 border-l border-indigo-600 pl-9
+            @apply my-10 border-l border-blue-500 pl-9 text-muted-foreground
         }
         ul {
-            @apply list-disc pl-6
+            @apply list-disc pl-6 text-foreground
         }
         ol {
-            @apply list-decimal pl-6
+            @apply list-decimal pl-6 text-foreground
+        }
+        
+        p {
+            @apply text-foreground
+        }
+        
+        strong {
+            @apply font-semibold text-foreground
+        }
+        
+        em {
+            @apply italic text-foreground
+        }
+        
+        a {
+            @apply text-blue-500 hover:text-blue-600 transition-colors
         }
     }
 
