@@ -60,7 +60,7 @@
                 <div class="flex items-start justify-between gap-2">
                   <div class="flex-1">
                     <CardTitle class="text-xl line-clamp-1">{{ project.name }}</CardTitle>
-                    <CardDescription class="mt-2 line-clamp-2">{{ project.description }}</CardDescription>
+                    <!-- <CardDescription class="mt-2 line-clamp-2">{{ project.description }}</CardDescription> -->
                   </div>
                   <div class="flex gap-1">
                     <a
