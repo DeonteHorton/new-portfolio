@@ -32,12 +32,12 @@ const { data: blogsData } = await useFetch(`/api/strapi/blogs?slug=/${route.para
 const blog = computed(() => blogsData.value?.[0] || {})
 
 useSeoMeta({
-  title: blog.seo.metaTitle,
-  ogTitle: blog.seo.metaTitle,
-  description: blog.seo.metaDescription,
-  ogDescription: blog.seo.metaDescription,
-  ogImage: blog.seo.shareImage.url,
-  twitterCard: blog.seo.shareImage.url,
+  title: blog?.seo?.metaTitle,
+  ogTitle: blog?.seo?.metaTitle,
+  description: blog?.seo?.metaDescription,
+  ogDescription: blog?.seo?.metaDescription,
+  ogImage: blog?.seo?.shareImage?.url,
+  twitterCard: blog?.seo?.shareImage?.url,
 })
 </script>
 
