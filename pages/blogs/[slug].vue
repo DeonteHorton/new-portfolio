@@ -25,7 +25,7 @@
 
 const route = useRoute()
 
-const { data: blogsData } = await useFetch(`/api/strapi/blogs?slug=/${route.params.slug}`, {
+const { data: blogsData } = await useFetch(`/api/strapi/blogs?slug=${route.params.slug}`, {
   default: () => [],
   key: `blog-${route.params.slug}`
 })
