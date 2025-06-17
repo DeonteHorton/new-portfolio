@@ -63,7 +63,14 @@ const df = new DateFormatter('en-US', {
   dateStyle: 'long',
 })
 
-const blogs = await $fetch('/api/strapi/blogs')
+// Replace $fetch with useFetch - this fixes hydration mismatch
+const { data: blogsData } = await useFetch('/api/strapi/blogs', {
+  default: () => [],
+  key: 'blogs'
+})
+
+// Access the data through computed property
+const blogs = computed(() => blogsData.value || [])
 
 useSeoMeta({
   title: "Deonte | Blog",
