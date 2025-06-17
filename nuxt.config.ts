@@ -1,30 +1,19 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-
-   nitro: {
-    prerender: {
-      routes: [
-        '/',
-        '/about',
-        '/contact',
-        '/projects',
-        '/blogs',
-      ]
-    }
-  },
-  
-  ssr: true,
-
-  hooks: {
+hooks: {
     async 'nitro:config'(nitroConfig) {
       if (process.env.NODE_ENV === 'production') {
         try {
-          // Import ofetch for use in config
           const { $fetch } = await import('ofetch')
           
-          // Fetch all blog slugs using your API route
-          const blogs = await $fetch('/api/strapi/blogs')
+          // Call Strapi directly instead of the API route
+          const response = await $fetch(`${process.env.NUXT_STRAPI_URL}/api/blogs?populate=*`, {
+            headers: {
+              Authorization: `Bearer ${process.env.NUXT_STRAPI_TOKEN}`
+            }
+          })
           
+          const blogs = response.data || []
           const blogRoutes = blogs.map(blog => `/blogs${blog.slug}`)
           
           nitroConfig.prerender = nitroConfig.prerender || {}
@@ -40,6 +29,20 @@ export default defineNuxtConfig({
       }
     }
   },
+  
+   nitro: {
+    prerender: {
+      routes: [
+        '/',
+        '/about',
+        '/contact',
+        '/projects',
+        '/blogs',
+      ]
+    }
+  },
+  
+  ssr: true,
 
   modules: [
     '@nuxtjs/tailwindcss',
