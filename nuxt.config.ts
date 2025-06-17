@@ -1,6 +1,22 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+   nitro: {
+    prerender: {
+      routes: [
+        '/',
+        '/about',
+        '/contact',
+        '/projects',
+        '/blogs',
+        // Prerender API routes too
+        '/api/strapi/projects',
+        '/api/strapi/blogs',
+        '/api/strapi/project-technologies'
+      ]
+    }
+  },
+
   modules: [
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
