@@ -25,30 +25,16 @@
 
 const route = useRoute()
 
-const { find } = useStrapi()
-const blog = ref({})
-
-blog.value = await find('blogs', {
-  filters: {
-    "slug": `/${route.params.slug}`
-  },
-  populate: {
-    content: {
-      populate: "*"
-    },
-    seo: {
-      populate: "*"
-    }
-  }
-}).then(response => response.data[0])
+const blogs = await $fetch(`/api/strapi/blogs?slug=/${route.params.slug}`)
+const blog = blogs[0]
 
 useSeoMeta({
-  title: blog.value.seo.metaTitle,
-  ogTitle: blog.value.seo.metaTitle,
-  description: blog.value.seo.metaDescription,
-  ogDescription: blog.value.seo.metaDescription,
-  ogImage: blog.value.seo.shareImage.url,
-  twitterCard: blog.value.seo.shareImage.url,
+  title: blog.seo.metaTitle,
+  ogTitle: blog.seo.metaTitle,
+  description: blog.seo.metaDescription,
+  ogDescription: blog.seo.metaDescription,
+  ogImage: blog.seo.shareImage.url,
+  twitterCard: blog.seo.shareImage.url,
 })
 </script>
 

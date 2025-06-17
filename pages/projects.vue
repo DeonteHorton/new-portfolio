@@ -13,10 +13,103 @@
       </p>
     </div>
 
+    <!-- Filter Tags -->
+    <div class="flex flex-wrap justify-center gap-2">
+      <Button
+        v-for="tag in tags"
+        :key="tag.id"
+        @click="toggleTag(tag)"
+        :variant="selectedTags.includes(tag.name) ? 'default' : 'outline'"
+        size="sm"
+        class="rounded-full"
+      >
+        {{ tag.name }}
+      </Button>
+      <Button
+        v-if="selectedTags.length > 0"
+        @click="selectedTags = []"
+        variant="ghost"
+        size="sm"
+        class="rounded-full"
+      >
+        Clear all
+      </Button>
+    </div>
+
     <!-- Projects Grid -->
-      <div class="max-w-full mx-auto text-5xl text-center">
-        Coming soon
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <TransitionGroup name="projects">
+        <div v-for="project in filteredProjects" :key="project.name">
+          <Card class="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+            <!-- Project Image -->
+            <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-500/10 to-purple-600/10">
+              <img
+                v-if="project.projectImage"
+                :src="project.projectImage.url"
+                :alt="project.name"
+                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+              />
+              <div v-else class="absolute inset-0 flex items-center justify-center">
+                <Icon name="lucide:code-2" class="h-16 w-16 text-muted-foreground/30" />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+
+            <CardHeader class="flex-grow">
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex-1">
+                  <CardTitle class="text-xl line-clamp-1">{{ project.name }}</CardTitle>
+                  <CardDescription class="mt-2 line-clamp-2">{{ project.description }}</CardDescription>
+                </div>
+                <div class="flex gap-1">
+                  <a
+                    v-if="project.demoLink"
+                    :href="project.demoLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-full hover:bg-muted transition-colors"
+                    title="Live Demo"
+                    @click.stop
+                  >
+                    <Icon name="lucide:external-link" class="h-4 w-4" />
+                  </a>
+                  <a
+                    v-if="project.githubLink"
+                    :href="project.githubLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-full hover:bg-muted transition-colors"
+                    title="View Source"
+                    @click.stop
+                  >
+                    <Icon name="lucide:github" class="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            </CardHeader>
+
+            <CardContent class="pt-0">
+              <!-- Tech Stack -->
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  v-for="tech in project.technologies.slice(0, 5)"
+                  :key="tech"
+                  class="px-2 py-1 text-xs rounded-full bg-muted"
+                >
+                  {{ tech.name }}
+                </span>
+                <span
+                  v-if="project.technologies.length > 5"
+                  class="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground"
+                >
+                  +{{ project.technologies.length - 5 }}
+                </span>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </TransitionGroup>
+    </div>
 
     <!-- No results state -->
     <div v-if="filteredProjects.length === 0" class="text-center py-12">
@@ -32,36 +125,18 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-const { find } = useStrapi()
-const projects = ref({})
-const tags = ref({})
-
-try {
-  projects.value = await find('projects',
-    {
-      sort: ['publishedAt:asc'],
-      populate: {
-        projectImage: {
-          populate: "*"
-        },
-        technologies: {
-          fields: ['name']
-        }
-      }
-    }
-  ).then(response => response.data)
-
-} catch (error) {
-  console.error('Error fetching blogs:', error)
-}
-
+const projects = ref(await $fetch('/api/strapi/projects'))
+const tags = ref(await $fetch('/api/strapi/project-technologies'))
 const selectedTags = ref<string[]>([])
 
-try {
-  tags.value = await find('project-technologies', {fields: ['id', 'name']}).then(response => response.data)
-} catch (error) {
-  console.error('Error fetching tags:', error)
-}
+useSeoMeta({
+  title: "Deonte | Projects",
+  ogTitle: "Deonte | Projects",
+  description: "A collection of web applications and experiments I've built over the years",
+  ogDescription: "A collection of web applications and experiments I've built over the years",
+  ogImage: "/pfp.jpg",
+  twitterCard: "summary",
+})
 
 // Filter projects based on selected tags
 const filteredProjects = computed(() => {
@@ -75,12 +150,13 @@ const filteredProjects = computed(() => {
   })
 })
 
-const toggleTag = (tag: string) => {
-  const index = selectedTags.value.indexOf(tag)
+const toggleTag = (tag: any) => {
+  const tagName = tag.name
+  const index = selectedTags.value.indexOf(tagName)
   if (index > -1) {
     selectedTags.value.splice(index, 1)
   } else {
-    selectedTags.value.push(tag)
+    selectedTags.value.push(tagName)
   }
 }
 </script>
