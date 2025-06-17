@@ -126,9 +126,21 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+  
+// Replace $fetch with useFetch - this fixes hydration mismatch
+const { data: projectsData } = await useFetch('/api/strapi/projects', {
+  default: () => [],
+  key: 'projects'
+})
 
-const projects = ref(await $fetch('/api/strapi/projects'))
-const tags = ref(await $fetch('/api/strapi/project-technologies'))
+const { data: tagsData } = await useFetch('/api/strapi/project-technologies', {
+  default: () => [],
+  key: 'project-technologies'
+})
+
+// Access the data through computed properties
+const projects = computed(() => projectsData.value || [])
+const tags = computed(() => tagsData.value || [])
 const selectedTags = ref<string[]>([])
 
 useSeoMeta({
