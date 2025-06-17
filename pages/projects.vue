@@ -40,73 +40,75 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <TransitionGroup name="projects">
         <div v-for="project in filteredProjects" :key="project.name">
-          <Card class="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
-            <!-- Project Image -->
-            <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-500/10 to-purple-600/10">
-              <img
-                v-if="project.projectImage"
-                :src="project.projectImage.url"
-                :alt="project.name"
-                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-              />
-              <div v-else class="absolute inset-0 flex items-center justify-center">
-                <Icon name="lucide:code-2" class="h-16 w-16 text-muted-foreground/30" />
-              </div>
-              <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-
-            <CardHeader class="flex-grow">
-              <div class="flex items-start justify-between gap-2">
-                <div class="flex-1">
-                  <CardTitle class="text-xl line-clamp-1">{{ project.name }}</CardTitle>
-                  <CardDescription class="mt-2 line-clamp-2">{{ project.description }}</CardDescription>
+          <ProjectDialog :project="project">
+            <Card class="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer">
+              <!-- Project Image -->
+              <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-500/10 to-purple-600/10">
+                <img
+                  v-if="project.projectImage"
+                  :src="project.projectImage.url"
+                  :alt="project.name"
+                  class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                />
+                <div v-else class="absolute inset-0 flex items-center justify-center">
+                  <Icon name="lucide:code-2" class="h-16 w-16 text-muted-foreground/30" />
                 </div>
-                <div class="flex gap-1">
-                  <a
-                    v-if="project.demoLink"
-                    :href="project.demoLink"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="p-2 rounded-full hover:bg-muted transition-colors"
-                    title="Live Demo"
-                    @click.stop
-                  >
-                    <Icon name="lucide:external-link" class="h-4 w-4" />
-                  </a>
-                  <a
-                    v-if="project.githubLink"
-                    :href="project.githubLink"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="p-2 rounded-full hover:bg-muted transition-colors"
-                    title="View Source"
-                    @click.stop
-                  >
-                    <Icon name="lucide:github" class="h-4 w-4" />
-                  </a>
-                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            </CardHeader>
 
-            <CardContent class="pt-0">
-              <!-- Tech Stack -->
-              <div class="flex flex-wrap gap-1.5">
-                <span
-                  v-for="tech in project.technologies.slice(0, 5)"
-                  :key="tech"
-                  class="px-2 py-1 text-xs rounded-full bg-muted"
-                >
-                  {{ tech.name }}
-                </span>
-                <span
-                  v-if="project.technologies.length > 5"
-                  class="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground"
-                >
-                  +{{ project.technologies.length - 5 }}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
+              <CardHeader class="flex-grow">
+                <div class="flex items-start justify-between gap-2">
+                  <div class="flex-1">
+                    <CardTitle class="text-xl line-clamp-1">{{ project.name }}</CardTitle>
+                    <CardDescription class="mt-2 line-clamp-2">{{ project.description }}</CardDescription>
+                  </div>
+                  <div class="flex gap-1">
+                    <a
+                      v-if="project.demoLink"
+                      :href="project.demoLink"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="p-2 rounded-full hover:bg-muted transition-colors"
+                      title="Live Demo"
+                      @click.stop
+                    >
+                      <Icon name="lucide:external-link" class="h-4 w-4" />
+                    </a>
+                    <a
+                      v-if="project.githubLink"
+                      :href="project.githubLink"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="p-2 rounded-full hover:bg-muted transition-colors"
+                      title="View Source"
+                      @click.stop
+                    >
+                      <Icon name="lucide:github" class="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+              </CardHeader>
+
+              <CardContent class="pt-0">
+                <!-- Tech Stack -->
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    v-for="tech in project.technologies.slice(0, 5)"
+                    :key="tech"
+                    class="px-2 py-1 text-xs rounded-full bg-muted"
+                  >
+                    {{ tech.name }}
+                  </span>
+                  <span
+                    v-if="project.technologies.length > 5"
+                    class="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground"
+                  >
+                    +{{ project.technologies.length - 5 }}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          </ProjectDialog>
         </div>
       </TransitionGroup>
     </div>
