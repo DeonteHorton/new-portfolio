@@ -1,12 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  nitro: {
-    prerender: {
-      ignore: ["/projects", "/blogs", "/blogs/*"]
-    }
-  },
-
   modules: [
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
