@@ -9,7 +9,6 @@ export default defineNuxtConfig({
         '/contact',
         '/projects',
         '/blogs',
-        '/blogs/*',
       ]
     }
   },
