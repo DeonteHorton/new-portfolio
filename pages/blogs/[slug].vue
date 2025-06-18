@@ -25,16 +25,19 @@
 
 const route = useRoute()
 
-const blogs = await $fetch(`/api/strapi/blogs?slug=/${route.params.slug}`)
-const blog = blogs[0]
+const { data: blogsData } = await useFetch(`/api/strapi/blogs?slug=${route.params.slug}`, {
+  default: () => [],
+  key: `blog-${route.params.slug}`
+})
+const blog = computed(() => blogsData.value?.[0] || {})
 
 useSeoMeta({
-  title: blog.seo.metaTitle,
-  ogTitle: blog.seo.metaTitle,
-  description: blog.seo.metaDescription,
-  ogDescription: blog.seo.metaDescription,
-  ogImage: blog.seo.shareImage.url,
-  twitterCard: blog.seo.shareImage.url,
+  title: blog?.seo?.metaTitle,
+  ogTitle: blog?.seo?.metaTitle,
+  description: blog?.seo?.metaDescription,
+  ogDescription: blog?.seo?.metaDescription,
+  ogImage: blog?.seo?.shareImage?.url,
+  twitterCard: blog?.seo?.shareImage?.url,
 })
 </script>
 
