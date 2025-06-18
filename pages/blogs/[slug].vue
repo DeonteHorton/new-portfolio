@@ -9,12 +9,11 @@
               <div id="rich-text-body" v-if="content.body" v-html="content.body"></div>
           </div>
           <div v-if="content['__component'] == 'shared.media'">
-              <figure class="mt-16">
-                <img class="aspect-video rounded-xl bg-muted object-cover" :src="content.media?.url" :alt="content.altText" />
-                <figcaption v-if="content.copy" class="mt-4 flex gap-x-2 text-sm/6 text-muted-foreground">
-                 {{ content.copy }}
-                </figcaption>
-              </figure>
+              <ZoomableImage 
+                :src="content.media?.url" 
+                :alt="content.altText" 
+                :caption="content.copy"
+              />
           </div>
       </div>
     </div>
