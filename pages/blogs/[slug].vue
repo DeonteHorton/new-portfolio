@@ -25,11 +25,12 @@
 
 const route = useRoute()
 
-const { data: blogsData } = await useFetch(`/api/strapi/blogs?slug=${route.params.slug}`, {
+const { data: blogsData } = await useFetch(`/api/strapi/blogs?slug=/${route.params.slug}`, {
   default: () => [],
   key: `blog-${route.params.slug}`
 })
-const blog = computed(() => blogsData.value?.[0] || {})
+
+const blog = computed(() => blogsData.value?.[0] || null)
 
 useSeoMeta({
   title: blog?.seo?.metaTitle,
