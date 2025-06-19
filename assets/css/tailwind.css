@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+@source '../../pages/**/*.{vue,js,ts}';
+@source '../../components/**/*.{vue,js,ts}';
+@source '../../layouts/**/*.{vue,js,ts}';
+@source '../../app.vue';
+
 @plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:is(.dark *));
