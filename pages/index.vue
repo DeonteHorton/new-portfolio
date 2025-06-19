@@ -7,7 +7,7 @@
               <div class="space-y-4">
                 <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                   <span class="block">Hi, I'm</span>
-                  <span class="block bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  <span class="block bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                     Deonte Horton
                   </span>
                   <span class="block text-4xl mt-2">{{ role }}</span>
@@ -21,7 +21,7 @@
               <div class="flex flex-col sm:flex-row gap-4">
                 <NuxtLink to="/projects">
                   <Button class="group relative overflow-hidden rounded-full px-6 h-12 transition-transform hover:scale-105">
-                    <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600"></span>
+                    <span class="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-600"></span>
                     <span class="relative flex items-center justify-center gap-2">
                       View Projects
                       <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -37,7 +37,7 @@
             </div>
             <div class="relative items-center pfp">
               <!-- Decorative elements -->
-              <div class="mx-auto wavy-background opacity-20 bg-gradient-to-r from-blue-500 to-purple-600"></div>
+              <div class="mx-auto wavy-background opacity-20 bg-linear-to-r from-blue-500 to-purple-600"></div>
               <img src="/pfp.jpg" alt="Deonte Horton" class="mx-auto object-cover max-w-lg w-full wavy-border ">
             </div>
           </div>
@@ -47,7 +47,7 @@
         <section class="container py-24 relative">
           <div class="absolute inset-0 bg-grid-white/10 -z-10"></div>
           <h2 class="text-3xl font-bold tracking-tight text-center mb-16">
-            <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+            <span class="bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
               Skills & Technologies
             </span>
           </h2>
@@ -57,14 +57,14 @@
               :key="skill.name"
               class="group relative overflow-hidden transition-all hover:shadow-lg hover:shadow-blue-500/10"
             >
-              <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute inset-0 bg-linear-to-r from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <CardHeader>
                 <CardTitle class="text-xl">{{ skill.name }}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p class="text-muted-foreground">{{ skill.description }}</p>
               </CardContent>
-              <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+              <div class="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform"></div>
             </Card>
           </div>
         </section>

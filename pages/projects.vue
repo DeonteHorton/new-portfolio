@@ -4,7 +4,7 @@
     <div class="max-w-3xl mx-auto text-center space-y-4">
       <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
         My
-        <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <span class="bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
           Projects
         </span>
       </h1>
@@ -43,7 +43,7 @@
           <ProjectDialog :project="project">
             <Card class="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer">
               <!-- Project Image -->
-              <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-500/10 to-purple-600/10">
+              <div class="relative aspect-video overflow-hidden bg-linear-to-br from-blue-500/10 to-purple-600/10">
                 <img
                   v-if="project.projectImage"
                   :src="project.projectImage.url"
@@ -53,10 +53,10 @@
                 <div v-else class="absolute inset-0 flex items-center justify-center">
                   <Icon name="lucide:code-2" class="h-16 w-16 text-muted-foreground/30" />
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="absolute inset-0 bg-linear-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
-              <CardHeader class="flex-grow">
+              <CardHeader class="grow">
                 <div class="flex items-start justify-between gap-2">
                   <div class="flex-1">
                     <CardTitle class="text-xl line-clamp-1">{{ project.name }}</CardTitle>
@@ -126,7 +126,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-  
+
 // Replace $fetch with useFetch - this fixes hydration mismatch
 const { data: projectsData } = await useFetch('/api/strapi/projects', {
   default: () => [],

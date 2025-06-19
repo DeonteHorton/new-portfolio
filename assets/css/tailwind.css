@@ -1,6 +1,151 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@source '../../pages/**/*.{vue,js,ts}';
+@source '../../components/**/*.{vue,js,ts}';
+@source '../../layouts/**/*.{vue,js,ts}';
+@source '../../app.vue';
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-collapsible-down: collapsible-down 0.2s ease-out;
+  --animate-collapsible-up: collapsible-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes collapsible-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+  @keyframes collapsible-up {
+    from {
+      height: var(--radix-collapsible-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility pill {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
+  }
+}
+
+@utility wavy-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 95%; /* Or whatever width you want */
+  height: 103%;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morphing 6s ease-in-out infinite;
+  transform: translate(-50%, -50%); /* This keeps it centered */
+  /* Add your background color/gradient here */
+}
+
+@utility wavy-border {
+  /* Keep your existing wavy-border and morphing keyframes exactly as they are */
+  position: relative;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morphing 6s ease-in-out infinite;
+  position: relative;
+  z-index: 2; /* In front of background */
+}
 
 @layer base {
   :root {
@@ -69,43 +214,6 @@
 }
 
 @layer utilities {
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .pill {
-        cursor: pointer;
-        transition: transform 0.2s ease;
-    }
-    .pill:hover {
-        transform: scale(1.2);
-        filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
-    }
-
-    .wavy-background {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 95%; /* Or whatever width you want */
-        height: 103%;
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        animation: morphing 6s ease-in-out infinite;
-        transform: translate(-50%, -50%); /* This keeps it centered */
-        /* Add your background color/gradient here */
-    }
-
-    /* Keep your existing wavy-border and morphing keyframes exactly as they are */
-    .wavy-border {
-    position: relative;
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      animation: morphing 6s ease-in-out infinite;
-      position: relative;
-      z-index: 2; /* In front of background */
-    }
 
     @keyframes morphing {
       0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
