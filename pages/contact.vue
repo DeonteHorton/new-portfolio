@@ -4,7 +4,7 @@
     <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
       <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
         Let's
-        <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <span class="bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
           Connect!
         </span>
       </h1>
@@ -13,7 +13,7 @@
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
       <!-- Contact Form -->
       <!-- <Card class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-linear-to-r from-blue-500/10 to-purple-600/10 pointer-events-none"></div>
         <CardHeader>
           <CardTitle>Send a Message</CardTitle>
           <CardDescription>I'll get back to you as soon as possible.</CardDescription>

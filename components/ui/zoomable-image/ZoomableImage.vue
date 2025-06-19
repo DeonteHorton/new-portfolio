@@ -15,7 +15,7 @@
             :alt="alt" 
             class="w-full h-auto max-h-[85vh] object-contain"
           />
-          <DialogClose class="absolute top-2 right-2 bg-background/80 backdrop-blur-sm rounded-full p-2 hover:bg-background transition-colors">
+          <DialogClose class="absolute top-2 right-2 bg-background/80 backdrop-blur-xs rounded-full p-2 hover:bg-background transition-colors">
             <X class="h-4 w-4" />
             <span class="sr-only">Close</span>
           </DialogClose>

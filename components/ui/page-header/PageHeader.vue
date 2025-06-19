@@ -4,7 +4,7 @@
       {{ title }}
       <span 
         v-if="gradient" 
-        class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
+        class="bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
       >
         {{ gradient }}
       </span>

@@ -4,7 +4,7 @@
             <div class="mx-auto max-w-2xl lg:mx-0">
                 <h2 class="text-pretty text-4xl font-semibold tracking-tight text-foreground sm:text-5xl pb-16">
                     Blog
-                    <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                    <span class="bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                         Section
                     </span>
                 </h2>
@@ -12,8 +12,8 @@
             </div>
             <div v-if="blogs.length > 0" class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-border pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 <article v-for="blog in blogs" :key="blog.id" class="flex max-w-xl flex-col items-start justify-between group">
-                    <div class="relative w-full mb-5">
-                        <img :src="blog?.seo?.shareImage?.url" :alt="blog?.seo?.shareImage?.alternativeText" class="aspect-video w-full rounded-2xl bg-muted object-cover sm:aspect-2/1 lg:aspect-3/2 transition-transform duration-300 group-hover:scale-105" />
+                    <div class="relative w-full mb-5 overflow-hidden rounded-2xl">
+                        <img :src="blog?.seo?.shareImage?.url" :alt="blog?.seo?.shareImage?.alternativeText" class="aspect-video w-full bg-muted object-cover sm:aspect-2/1 lg:aspect-3/2 transition-transform duration-300 group-hover:scale-105" />
                         <div class="absolute inset-0 rounded-2xl ring-1 ring-border ring-inset" />
                     </div>
                     <div class="flex items-center gap-x-4 text-xs">
