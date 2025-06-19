@@ -14,7 +14,7 @@
                 <a v-for="blog in blogs" :key="blog.id" :href="`/blogs${blog.slug}`" class="block group">
                     <article class="flex max-w-xl flex-col items-start justify-between">
                         <div class="relative w-full mb-5 overflow-hidden rounded-2xl">
-                            <img :src="blog?.seo?.shareImage?.url" :alt="blog?.seo?.shareImage?.alternativeText" loading="lazy" class="aspect-video w-full bg-muted object-cover sm:aspect-2/1 lg:aspect-3/2 transition-transform duration-300 group-hover:scale-105" />
+                            <NuxtImg :src="blog?.seo?.shareImage?.url" :alt="blog?.seo?.shareImage?.alternativeText" loading="lazy" class="aspect-video w-full bg-muted object-cover sm:aspect-2/1 lg:aspect-3/2 transition-transform duration-300 group-hover:scale-105" />
                             <div class="absolute inset-0 rounded-2xl ring-1 ring-border ring-inset" />
                         </div>
                         <div class="flex items-center gap-x-4 text-xs">
