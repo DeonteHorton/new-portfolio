@@ -1,9 +1,9 @@
 <template>
-  <header class="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <header class="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
     <div class="container flex h-16 items-center justify-between">
       <NuxtLink
         to="/"
-        class="font-bold text-2xl bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
+        class="font-bold text-2xl bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
       >
           <Logo />
       </NuxtLink>

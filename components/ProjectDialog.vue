@@ -14,7 +14,7 @@
 
       <div class="flex-1 overflow-y-auto space-y-6 pr-2">
         <!-- Project Image -->
-        <div v-if="project.projectImage" class="relative aspect-video overflow-hidden rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-600/10">
+        <div v-if="project.projectImage" class="relative aspect-video overflow-hidden rounded-lg bg-linear-to-br from-blue-500/10 to-purple-600/10">
           <img
             :src="project.projectImage.url"
             :alt="project.name"
@@ -57,7 +57,7 @@
             <Button
               v-if="project.demoLink"
               as-child
-              class="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-none"
+              class="flex items-center gap-2 bg-linear-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-none"
             >
               <a
                 :href="project.demoLink"

@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  
+
    nitro: {
     prerender: {
       routes: [
@@ -12,11 +12,10 @@ export default defineNuxtConfig({
       ]
     }
   },
-  
+
   ssr: true,
 
   modules: [
-    '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
     'nuxt-icon',
   ],
@@ -29,9 +28,12 @@ export default defineNuxtConfig({
     }
   },
 
-  tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.ts',
+  css: ['~/assets/css/tailwind.css'],
+
+  postcss: {
+    plugins: {
+      '@tailwindcss/postcss': {},
+    },
   },
 
   shadcn: {

@@ -4,7 +4,7 @@
     <div class="max-w-3xl mx-auto text-center space-y-4">
       <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
         About
-        <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <span class="bg-linear-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
           Me
         </span>
       </h1>
@@ -17,7 +17,7 @@
     <!-- <div class="flex gap-12 grid-cols-2"> -->
     <div class="grid md:grid-cols-2 gap-12 items-stretch">
       <!-- Profile Section -->
-      <Card class="flex-1 overflow-hidden inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5">
+      <Card class="flex-1 overflow-hidden inset-0 bg-linear-to-r from-blue-500/5 to-purple-500/5">
         <CardHeader>
           <CardTitle class="text-xl">Background</CardTitle>
           <CardDescription>My journey in web development</CardDescription>
@@ -41,7 +41,7 @@
       </Card>
 
       <!-- Experience Timeline -->
-      <Card class="flex-1 overflow-hidden inset-0 bg-gradient-to-l from-blue-500/5 to-purple-500/5">
+      <Card class="flex-1 overflow-hidden inset-0 bg-linear-to-l from-blue-500/5 to-purple-500/5">
         <CardHeader>
           <CardTitle class="text-xl">Experience</CardTitle>
           <CardDescription>Professional journey</CardDescription>
@@ -70,7 +70,7 @@
       </Card>
 
       <!-- Education -->
-      <Card class="flex-1 overflow-hidden inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5">
+      <Card class="flex-1 overflow-hidden inset-0 bg-linear-to-r from-blue-500/5 to-purple-500/5">
         <CardHeader>
           <CardTitle class="text-xl">Education</CardTitle>
           <CardDescription>Academic background</CardDescription>
@@ -84,7 +84,7 @@
       </Card>
 
       <!-- Technical Skills -->
-      <Card class="flex-1 overflow-hidden inset-0 bg-gradient-to-l from-blue-500/5 to-purple-500/5">
+      <Card class="flex-1 overflow-hidden inset-0 bg-linear-to-l from-blue-500/5 to-purple-500/5">
         <CardHeader>
           <CardTitle class="text-xl">Technical Skills</CardTitle>
           <CardDescription>Core competencies</CardDescription>
@@ -113,7 +113,7 @@
       <p class="text-muted-foreground mb-4">Want to get in touch?</p>
       <NuxtLink to="/contact">
         <Button class="group relative overflow-hidden rounded-full px-6 h-12 transition-transform hover:scale-105">
-          <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600"></span>
+          <span class="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-600"></span>
           <span class="relative flex items-center justify-center gap-2">
             Contact Me
           </span>

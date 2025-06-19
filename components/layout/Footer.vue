@@ -1,8 +1,8 @@
 <template>
   <footer class="border-t">
     <div class="container py-8">
-      <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
-        <div class="flex flex-col items-center md:items-start gap-4">
+      <div class="flex flex-col items-center justify-center gap-4">
+        <div class="flex flex-col items-center gap-4">
           <p class="text-muted-foreground text-sm">
             © {{ new Date().getFullYear() }} Deonte Horton. All rights reserved.
           </p>
