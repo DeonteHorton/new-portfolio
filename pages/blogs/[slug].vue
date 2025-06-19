@@ -46,37 +46,127 @@ useSeoMeta({
     
     #content {
         #rich-text-heading {
-            @apply text-3xl font-semibold text-foreground
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: var(--foreground);
         }
+        
         #rich-text-body {
-            @apply text-base text-foreground
+            font-size: 1rem;
+            color: var(--foreground);
         }
 
         blockquote {
-            @apply my-10 border-l border-blue-500 pl-9 text-muted-foreground
+            margin: 2.5rem 0;
+            border-left: 1px solid #3b82f6;
+            padding-left: 2.25rem;
+            color: var(--muted-foreground);
         }
+        
         ul {
-            @apply list-disc pl-6 text-foreground
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: var(--foreground);
         }
+        
         ol {
-            @apply list-decimal pl-6 text-foreground
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+            color: var(--foreground);
         }
         
         p {
-            @apply text-foreground
+            color: var(--foreground);
+            margin: 1rem 0;
         }
         
         strong {
-            @apply font-semibold text-foreground
+            font-weight: 600;
+            color: var(--foreground);
         }
         
         em {
-            @apply italic text-foreground
+            font-style: italic;
+            color: var(--foreground);
         }
         
         a {
-            @apply text-blue-500 hover:text-blue-600 transition-colors
+            color: #3b82f6;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: #2563eb;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--foreground);
+            margin: 2rem 0 1rem 0;
+        }
+        
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: var(--foreground);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--foreground);
+            margin: 1.25rem 0 0.5rem 0;
+        }
+        
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--foreground);
+            margin: 1rem 0 0.5rem 0;
+        }
+        
+        h5 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--foreground);
+            margin: 0.75rem 0 0.25rem 0;
+        }
+        
+        h6 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--foreground);
+            margin: 0.5rem 0 0.25rem 0;
+        }
+        
+        pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        code {
+            background-color: #f1f5f9;
+            color: #475569;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+        }
+        
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
         }
     }
-
 </style>
