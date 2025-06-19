@@ -48,6 +48,7 @@
                   v-if="project.projectImage"
                   :src="project.projectImage.url"
                   :alt="project.name"
+                  loading="lazy"
                   class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                 />
                 <div v-else class="absolute inset-0 flex items-center justify-center">

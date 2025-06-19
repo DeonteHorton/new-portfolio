@@ -6,6 +6,7 @@
           class="aspect-video rounded-xl bg-muted object-cover cursor-zoom-in hover:opacity-90 transition-opacity" 
           :src="src" 
           :alt="alt" 
+          loading="lazy"
         />
       </DialogTrigger>
       <DialogContent class="max-w-[90vw] max-h-[90vh] p-0 overflow-hidden">
@@ -13,6 +14,7 @@
           <img 
             :src="src" 
             :alt="alt" 
+            loading="lazy"
             class="w-full h-auto max-h-[85vh] object-contain"
           />
           <DialogClose class="absolute top-2 right-2 bg-background/80 backdrop-blur-xs rounded-full p-2 hover:bg-background transition-colors">
