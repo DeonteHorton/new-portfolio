@@ -2,7 +2,7 @@
   <figure class="mt-16">
     <Dialog>
       <DialogTrigger as-child>
-        <img 
+        <NuxtImg 
           class="aspect-video rounded-xl bg-muted object-cover cursor-zoom-in hover:opacity-90 transition-opacity" 
           :src="src" 
           :alt="alt" 
@@ -11,7 +11,7 @@
       </DialogTrigger>
       <DialogContent class="max-w-[90vw] max-h-[90vh] p-0 overflow-hidden">
         <div class="relative">
-          <img 
+          <NuxtImg 
             :src="src" 
             :alt="alt" 
             loading="lazy"

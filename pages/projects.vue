@@ -44,7 +44,7 @@
             <Card class="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer">
               <!-- Project Image -->
               <div class="relative aspect-video overflow-hidden bg-linear-to-br from-blue-500/10 to-purple-600/10">
-                <img
+                <NuxtImg
                   v-if="project.projectImage"
                   :src="project.projectImage.url"
                   :alt="project.name"

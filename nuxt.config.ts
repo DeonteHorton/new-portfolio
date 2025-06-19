@@ -15,10 +15,13 @@ export default defineNuxtConfig({
 
   ssr: true,
 
-  modules: [
-    'shadcn-nuxt',
-    'nuxt-icon',
-  ],
+  modules: ['shadcn-nuxt', 'nuxt-icon', '@nuxt/image'],
+
+  image: {
+    cloudflare: {
+      baseURL: process.env.NUXT_CLOUDFLARE_IMAGES_URL
+    }
+  },
 
   runtimeConfig: {
     strapiUrl: process.env.NUXT_STRAPI_URL,

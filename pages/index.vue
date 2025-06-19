@@ -38,7 +38,7 @@
             <div class="relative items-center pfp">
               <!-- Decorative elements -->
               <div class="mx-auto wavy-background opacity-20 bg-linear-to-r from-blue-500 to-purple-600"></div>
-              <img src="/pfp.jpg" alt="Deonte Horton" loading="lazy" class="mx-auto object-cover max-w-lg w-full wavy-border ">
+              <NuxtImg provider="cloudflare" src="/pfp.jpg" alt="Deonte Horton" loading="lazy" class="mx-auto object-cover max-w-lg w-full wavy-border" />
             </div>
           </div>
         </section>
