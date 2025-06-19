@@ -42,6 +42,8 @@ useSeoMeta({
 </script>
 
 <style>
+    @reference 'tailwindcss';
+    
     #content {
         #rich-text-heading {
             @apply text-3xl font-semibold text-foreground
