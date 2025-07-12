@@ -1,53 +1,60 @@
+import { contactFormSchema } from '~/types/contact'
+import { useStrapiServer } from '~/server/utils/strapi'
+
 export default defineEventHandler(async (event) => {
   try {
-    const body = await readBody(event);
-    const { name, email, subject, message } = body;
-    
-    // Input validation
-    if (!name || !email || !subject || !message) {
-      return createError({
+    const body = await readBody(event)
+
+    // Validate the request body using Zod schema
+    const validatedData = contactFormSchema.parse(body)
+
+    // Check honeypot field for spam protection
+    if (validatedData.website) {
+      throw createError({
         statusCode: 400,
-        message: 'All fields are required'
-      });
+        statusMessage: 'Bad Request'
+      })
     }
-    
-    // Here you would typically send an email using a service like Nodemailer, SendGrid, etc.
-    // For example with Nodemailer (you would need to install it first):
-    /*
-    const transporter = nodemailer.createTransport({
-      host: 'your-smtp-host',
-      port: 587,
-      secure: false,
-      auth: {
-        user: 'your-email',
-        pass: 'your-password'
-      }
-    });
-    
-    await transporter.sendMail({
-      from: 'your-website@example.com',
-      to: 'deonte.horton11@gmail.com',
-      replyTo: email,
-      subject: `Portfolio Contact: ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-      html: `<p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong></p>
-             <p>${message}</p>`
-    });
-    */
-    
-    // For now, we'll just log and return success
-    console.log('Contact form submission:', body);
-    
+
+    // Initialize Strapi client
+    const strapi = useStrapiServer()
+
+    // Create message entry in Strapi CMS
+    const response = await strapi.create('messages', {
+      name: validatedData.name,
+      email: validatedData.email,
+      message: validatedData.message
+    })
+
     return {
       success: true,
-      message: 'Message received! I\'ll get back to you soon.'
-    };
-  } catch (error) {
-    return createError({
+      message: 'Message sent successfully! I\'ll get back to you soon.',
+      data: response.data
+    }
+  } catch (error: any) {
+    // Handle Zod validation errors
+    if (error.name === 'ZodError') {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Invalid form data',
+        data: error.errors
+      })
+    }
+
+    // Handle Strapi API errors
+    if (error.response) {
+      console.error('Strapi API error:', error.response.data)
+      throw createError({
+        statusCode: error.response.status || 500,
+        statusMessage: error.response.statusText || 'Failed to save message'
+      })
+    }
+
+    // Handle other errors
+    console.error('Contact form error:', error)
+    throw createError({
       statusCode: 500,
-      message: 'Failed to send message. Please try again.'
-    });
+      statusMessage: 'Internal Server Error'
+    })
   }
-});
+})

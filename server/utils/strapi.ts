@@ -130,6 +130,24 @@ export class StrapiServerClient {
 
     return response
   }
+
+  async create<T = any>(
+    endpoint: string,
+    data: Record<string, any>
+  ): Promise<StrapiResponse<T>> {
+    const url = `${this.baseURL}/api/${endpoint}`
+
+    const response = await $fetch<StrapiResponse<T>>(url, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.token}`,
+        'Content-Type': 'application/json'
+      },
+      body: { data }
+    })
+
+    return response
+  }
 }
 
 export function useStrapiServer() {

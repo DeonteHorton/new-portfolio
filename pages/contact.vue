@@ -12,8 +12,7 @@
 
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
       <!-- Contact Form -->
-      <!-- <Card class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-linear-to-r from-blue-500/10 to-purple-600/10 pointer-events-none"></div>
+      <Card class="overflow-hidden bg-linear-to-r from-blue-500/5 to-purple-600/5">
         <CardHeader>
           <CardTitle>Send a Message</CardTitle>
           <CardDescription>I'll get back to you as soon as possible.</CardDescription>
@@ -21,7 +20,7 @@
         <CardContent>
           <ContactForm @submit="handleSubmit" />
         </CardContent>
-      </Card> -->
+      </Card>
 
       <!-- Contact Information -->
       <div class="space-y-8">
@@ -114,5 +113,10 @@ const socialLinks = [
     icon: 'lucide:twitter'
   }
 ]
+
+const handleSubmit = (data: any) => {
+  // The form component handles the API call, this is just for any additional handling
+  console.log('Form submitted successfully:', data)
+}
 
 </script>
