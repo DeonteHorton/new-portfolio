@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '20.19.1'
       - run: npm install
-      - run: npm build
+      - run: npm run build
       - name: Auto merge
         if: ${{ success() }}
         uses: devmasx/merge-branch@master
