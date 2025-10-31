@@ -15,4 +15,4 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '21'
-      - run: npm clean install && npm run nuild
+      - run: npm install && npm run build
