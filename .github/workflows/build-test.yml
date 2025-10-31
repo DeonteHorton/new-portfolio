@@ -14,4 +14,14 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '20.19.1'
-      - run: npm install && npm run build
+      - run: npm install
+      - run: npm build
+      - name: Auto merge
+        if: ${{ success() }}
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
