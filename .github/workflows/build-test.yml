@@ -1,0 +1,18 @@
+name: Build 
+run-name: Building Test
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  Build-Portfolio-Test:
+    env:
+      SERVER: preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Download packages and build'
+        uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '21'
+      - run: npm clean install && npm run nuild
