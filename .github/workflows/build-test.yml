@@ -10,9 +10,8 @@ jobs:
       SERVER: preview
     runs-on: ubuntu-latest
     steps:
-      - name: 'Download packages and build'
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
-          node-version: '21'
+          node-version: '20.19.1'
       - run: npm install && npm run build
