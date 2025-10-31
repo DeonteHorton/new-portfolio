@@ -18,7 +18,7 @@
                             <div class="absolute inset-0 rounded-2xl ring-1 ring-border ring-inset" />
                         </div>
                         <div class="flex items-center gap-x-4 text-xs">
-                            <time :datetime="blog.publishedAt" class="text-muted-foreground">{{ formatDate(blog.createdAt) }}</time>
+                            <time :datetime="blog.publishedAt" class="text-muted-foreground">{{ formatDate(blog.publishedAt) }}</time>
                             <div v-if="blog.blogCategories?.length" class="flex gap-2">
                                 <div
                                     v-for="category in blog.blogCategories"
@@ -81,7 +81,8 @@ useSeoMeta({
 })
 
 const formatDate = (date: any) => {
-  return df.format(date.toDateTimeString)
+  let day = new Date(date)
+  return df.format(day)
 }
 
 
