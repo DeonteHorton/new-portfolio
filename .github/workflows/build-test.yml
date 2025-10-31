@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - dev
+
+permissions:
+  contents: write
+
 jobs:
   Build-Portfolio-Test:
     env:
@@ -23,6 +27,6 @@ jobs:
           type: now
           from_branch: dev
           target_branch: main
-          github_token: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
 
