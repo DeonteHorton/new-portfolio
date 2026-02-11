@@ -85,8 +85,8 @@ const contactInfo = [
   {
     icon: 'lucide:mail',
     title: 'Email',
-    content: 'dhorton@deonte.dev',
-    link: 'mailto:dhorton@deonte.dev',
+    content: 'horton@deonte.dev',
+    link: 'mailto:horton@deonte.dev',
     linkText: 'Send an email'
   },
   {
